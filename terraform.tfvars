@@ -1,0 +1,6 @@
+credentials       = "credentials.json"
+#name              = "demo"
+gcp_project       = "terraform-370703"
+region            = "us-central1"
+zone              = "us-central1-a"
+subnet_cidr_range = "192.168.0.0/16"
