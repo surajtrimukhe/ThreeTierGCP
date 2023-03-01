@@ -1,7 +1,7 @@
 
-resource "google_compute_instance" "demo_compute_instance1" {
+resource "google_compute_instance" "demo_compute_instance123" {
   #count        = 2
-  name         = "app-server"
+  name         = "web-server123"
   #name         = "demo-instance-${count.index+1}"
   machine_type = "n1-standard-2"
   
@@ -16,16 +16,20 @@ resource "google_compute_instance" "demo_compute_instance1" {
     interface = "SCSI"
   }
 
+  tags = ["allow-http"]
+
+  
+
   network_interface {
     network    = google_compute_network.demo_vpc_network.name
-    subnetwork = google_compute_subnetwork.demovpc_subnet2.name
+    subnetwork = google_compute_subnetwork.demovpc_subnet1.name
     
     access_config {
       // Ephemeral public IP
     }
   }
 
-  
+  metadata_startup_script = file("script.sh")
 
   depends_on = [google_compute_network.demo_vpc_network, google_compute_subnetwork.demovpc_subnet1]
 }
