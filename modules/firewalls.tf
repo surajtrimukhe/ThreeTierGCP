@@ -22,9 +22,9 @@ resource "google_compute_firewall" "demovpc_firewall_icmp" {
 }
 
 
-resource "google_compute_firewall" "allow_http" {
-  name    = "allow-http-rule"
-  network = "default"
+resource "google_compute_firewall" "allow_http1" {
+  name    = "allow-http-rule1"
+  network = "demo-vpc"
   source_ranges = ["0.0.0.0/0"]
   allow {
     ports    = ["80", "443"]
